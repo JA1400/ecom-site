@@ -1,3 +1,4 @@
+import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
 import React from "react";
 
@@ -7,7 +8,8 @@ export default function ({
   return (
     <>
       <Navbar />
-      <main className="p-2.5">{children}</main>
+      <main className="mt-15">{children}</main>
+      <Footer />
     </>
   );
 }
