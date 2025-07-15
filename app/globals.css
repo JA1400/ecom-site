@@ -1,13 +1,72 @@
 @import "tailwindcss";
+@import "tailwind-scrollbar-hide/v4";
 
 @theme {
   --color-brand-500: #0068c8;
+  --color-brand-600: #008aff;
   --color-warning-500: #dd2831;
+  --animate-fadeSlideUp: fadeSlideUp 600ms ease-in-out forwards;
+  --animate-fadeOutUp: fadeOutUp 600ms ease-in-out forwards;
+
+  @keyframes fadeSlideUp {
+    0% {
+      opacity: 0;
+      transform: translateY(100px) scale(1.2);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
+
+  @keyframes fadeOutUp {
+    from {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+    to {
+      opacity: 0;
+      transform: translateY(-40px) scale(0.95);
+    }
+  }
 }
 
 body {
   font-family: Arial, Helvetica, sans-serif;
   background-color: #f1f1f1;
+}
+
+.icon {
+  @apply text-black transition-colors duration-200 hover:!text-brand-600 active:!text-brand-600;
+}
+
+.text-hover {
+  @apply transition-colors duration-200 hover:text-brand-500;
+}
+
+.cat-link {
+  flex: 0 0 calc(50% - 5px);
+  @apply box-border h-28 rounded-md flex flex-col justify-center items-center bg-white transition-colors duration-200 border border-transparent hover:border-brand-500;
+}
+
+.primary-btn {
+  @apply flex items-center justify-center text-white text-sm font-bold text-center w-36 h-11 bg-brand-500 rounded-md transition-colors duration-200 hover:!bg-brand-600 active:!bg-brand-600;
+}
+
+.alternate-btn {
+  @apply cursor-pointer h-10 w-full border rounded-md text-xs font-bold border-brand-500 transition-colors duration-200 hover:bg-brand-500 hover:text-white;
+}
+
+.dot {
+  @apply cursor-pointer transition-all duration-200 ease-in-out hover:!bg-brand-500 hover:!w-10;
+}
+
+.current-dot {
+  @apply w-10 h-4 rounded-full bg-brand-500;
+}
+
+.regular-dot {
+  @apply w-4 h-4 rounded-full bg-[#d9d9d9];
 }
 
 .card {
