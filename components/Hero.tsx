@@ -42,7 +42,7 @@ const Hero = () => {
       <AnimatePresence mode="wait">
         <motion.div
           key={index}
-          className="top-piece flex flex-col gap-5 items-center"
+          className="top-piece max-w-90 flex flex-col gap-5 items-center"
           initial={{ opacity: 0, y: -80 }}
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0 }}

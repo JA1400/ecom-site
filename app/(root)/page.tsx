@@ -62,13 +62,13 @@ export default function Home() {
         <p className="font-light text-sm text-center">
           Receive our latest promotions and offers
         </p>
-        <div className="box-border h-12 rounded-md border border-brand-500 flex mt-5">
+        <div className="h-12 flex mt-5">
           <input
             type="text"
             placeholder="Email Address"
-            className="w-[70%] pl-2.5"
+            className="box-border w-[70%] pl-2.5 rounded-l-md outline-none border border-brand-500 focus:border-brand-600"
           />
-          <button className="cursor-pointer flex items-center justify-center text-white text-sm font-bold text-center bg-brand-500 w-[30%] transition-colors duration-200 hover:bg-brand-600">
+          <button className="cursor-pointer flex items-center rounded-r-md justify-center text-white text-sm font-bold text-center bg-brand-500 w-[30%] transition-colors duration-200 hover:bg-brand-600">
             Subscribe
           </button>
         </div>
