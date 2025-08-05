@@ -5,3 +5,7 @@ export type Slide = {
   description: string;
   price: string;
 };
+
+export type CategoryType = {
+  variant: "home" | "shop"; // 👈 these are your two modes
+};
