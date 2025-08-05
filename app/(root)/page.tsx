@@ -9,7 +9,7 @@ export default function Home() {
     <>
       <section className="p-2.5 flex flex-col gap-2.5">
         <Hero />
-        <Categories />
+        <Categories variant="home" />
       </section>
       <section className="p-2.5 flex flex-col items-center bg-white pt-12">
         <h2 className="relative text-center font-bold text-2xl w-fit after:content-[''] after:w-2/3 after:h-1 after:bg-brand-500 after:block after:mt-1 after:mx-auto">

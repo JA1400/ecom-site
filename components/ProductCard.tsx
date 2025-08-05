@@ -9,7 +9,10 @@ const ProductCard = () => {
     <div className="px-2 flex flex-col gap-2">
       <Image
         src={placeholder}
-        className="w-fit cursor-pointer"
+        width={200}
+        height={200}
+        className="w-full aspect-square cursor-pointer"
+        placeholder="blur"
         alt="product-IMG"
       />
       <h3 className=" truncate font-semibold text-lg cursor-pointer transition-colors transition-200 hover:text-brand-500">

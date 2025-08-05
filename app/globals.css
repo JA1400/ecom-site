@@ -5,6 +5,7 @@
   --color-brand-500: #0068c8;
   --color-brand-600: #008aff;
   --color-warning-500: #dd2831;
+  --color-offwhite-500: #efefef;
   --animate-fadeSlideUp: fadeSlideUp 600ms ease-in-out forwards;
   --animate-fadeOutUp: fadeOutUp 600ms ease-in-out forwards;
 
@@ -46,7 +47,7 @@ body {
 
 .cat-link {
   flex: 0 0 calc(50% - 5px);
-  @apply box-border h-28 rounded-md flex flex-col justify-center items-center bg-white transition-colors duration-200 border border-transparent hover:border-brand-500;
+  @apply box-border h-28 rounded-md flex flex-col justify-center items-center transition-colors duration-200 border border-transparent hover:border-brand-500;
 }
 
 .primary-btn {
@@ -69,5 +70,30 @@ body {
   @apply w-4 h-4 rounded-full bg-[#d9d9d9];
 }
 
-.card {
+.filter-section {
+  @apply border-b border-offwhite-500 p-7;
+}
+
+.filter-section h3 {
+  @apply text-lg font-bold;
+}
+
+.filter-section div {
+  @apply pt-6 flex flex-col gap-2.5 justify-around text-sm;
+}
+
+.filter-label {
+  @apply flex items-center gap-2.5 cursor-pointer text-black font-semibold text-base;
+}
+
+.filter-label input {
+  @apply w-5 h-5 accent-brand-500;
+}
+
+.s-filter-list {
+  @apply flex flex-wrap gap-2.5;
+}
+
+.s-filter-list li {
+  @apply bg-black text-white text-sm py-0.5 px-2.5 rounded-md flex gap-1.5 items-center;
 }

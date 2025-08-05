@@ -81,7 +81,7 @@ const Navbar = () => {
                 </li>
                 <li>
                   <Link
-                    href={"/#"}
+                    href={"/shop"}
                     className="w-full h-14 border-b border-[#EFEFEF] flex items-center justify-between"
                   >
                     <p className=" font-extrabold pl-[19px]">Shop</p>
