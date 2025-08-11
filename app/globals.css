@@ -97,3 +97,15 @@ body {
 .s-filter-list li {
   @apply bg-black text-white text-sm py-0.5 px-2.5 rounded-md flex gap-1.5 items-center;
 }
+
+.row-separator {
+  @apply w-full border-b border-[#E2E2E2] my-5;
+}
+
+.price-row {
+  @apply flex justify-between;
+}
+
+.price-row dd {
+  @apply font-bold;
+}
