@@ -26,8 +26,12 @@ const Navbar = () => {
           <img src="/logo.png" alt="logo" className=" cursor-pointer w-30" />
         </Link>
         <section className="flex w-auto gap-3.5 items-center">
-          <User className="icon" size={20} />
-          <ShoppingCart className="icon" size={20} />
+          <Link href={"/signin"}>
+            <User className="icon" size={20} />
+          </Link>
+          <Link href={"/cart"}>
+            <ShoppingCart className="icon" size={20} />
+          </Link>
           <Menu className="icon" size={24} onClick={handleClick} />
         </section>
       </nav>

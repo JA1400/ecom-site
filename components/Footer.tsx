@@ -19,16 +19,19 @@ const Footer = () => {
       </article>
       <h6 className="font-extrabold tracking-wide text-lg pt-7">Quick Links</h6>
       <article className="flex flex-col gap-2">
-        <Link className="text-hover" href={"/#"}>
+        <Link className="text-hover" href={"/"}>
           Home
+        </Link>
+        <Link className="text-hover" href={"/shop"}>
+          Shop
         </Link>
         <Link className="text-hover" href={"/#"}>
           Account
         </Link>
-        <Link className="text-hover" href={"/#"}>
+        <Link className="text-hover" href={"#"}>
           About Us
         </Link>
-        <Link className="text-hover" href={"/#"}>
+        <Link className="text-hover" href={"#"}>
           Contact Us
         </Link>
       </article>
