@@ -11,10 +11,12 @@ import {
 } from "lucide-react";
 import Link from "next/link";
 import { AnimatePresence, motion } from "framer-motion";
+import { useSession } from "next-auth/react";
 
 const Navbar = () => {
+  const { data: session } = useSession();
   const [menuToggle, setMenuToggle] = useState(false);
-
+  const href = session ? `/account/dashboard` : "/signin";
   const handleClick = () => {
     setMenuToggle((prev) => !prev);
   };
@@ -26,7 +28,7 @@ const Navbar = () => {
           <img src="/logo.png" alt="logo" className=" cursor-pointer w-30" />
         </Link>
         <section className="flex w-auto gap-3.5 items-center">
-          <Link href={"/signin"}>
+          <Link href={href}>
             <User className="icon" size={20} />
           </Link>
           <Link href={"/cart"}>
@@ -53,11 +55,6 @@ const Navbar = () => {
               exit={{ x: "100%" }}
               transition={{ duration: 0.3, ease: "easeInOut" }}
               className="fixed top-0 right-0 w-full h-full max-w-[28rem] bg-white z-50 flex flex-col"
-              onClick={(e) => {
-                if ((e.target as HTMLElement).tagName === "A") {
-                  handleClick();
-                }
-              }}
             >
               <div className="h-16 w-full bg-[#EFEFEF] flex justify-between items-center">
                 <div className="h-full w-16 bg-black flex justify-center items-center border-r-2 border-white">
@@ -65,8 +62,8 @@ const Navbar = () => {
                 </div>
                 <p className="font-extrabold text-lg-">Menu</p>
                 <button
-                  className="h-full w-16 flex justify-center items-center border-l-2 border-white"
                   onClick={handleClick}
+                  className="h-full w-16 flex justify-center items-center border-l-2 border-white"
                 >
                   <X className="text-black hover:text-brand-500" size={26} />
                 </button>
@@ -75,6 +72,7 @@ const Navbar = () => {
                 <li>
                   <Link
                     href={"/"}
+                    onClick={handleClick}
                     className="w-full h-14 border-b border-[#EFEFEF] flex items-center justify-between"
                   >
                     <p className=" font-extrabold pl-[19px]">Home</p>
@@ -86,6 +84,7 @@ const Navbar = () => {
                 <li>
                   <Link
                     href={"/shop"}
+                    onClick={handleClick}
                     className="w-full h-14 border-b border-[#EFEFEF] flex items-center justify-between"
                   >
                     <p className=" font-extrabold pl-[19px]">Shop</p>
@@ -96,7 +95,8 @@ const Navbar = () => {
                 </li>
                 <li>
                   <Link
-                    href={"/#"}
+                    href={"/account/dashboard"}
+                    onClick={handleClick}
                     className="w-full h-14 border-b border-[#EFEFEF] flex items-center justify-between"
                   >
                     <p className=" font-extrabold pl-[19px]">Account</p>
@@ -108,6 +108,7 @@ const Navbar = () => {
                 <li>
                   <Link
                     href={"/#"}
+                    onClick={handleClick}
                     className="w-full h-14 border-b border-[#EFEFEF] flex items-center justify-between"
                   >
                     <p className=" font-extrabold pl-[19px]">Wishlist</p>
