@@ -8,10 +8,11 @@ import SkeletonCard from "@/components/SkeletonCard";
 import Filters from "@/components/Filters";
 import { AnimatePresence, motion } from "framer-motion";
 import FilterSection from "@/components/FilterSection";
+import { useProducts } from "@/context/ProductsContext";
 
 const Shop = () => {
-  const [products, setProducts] = useState(0);
-  const [loading, setLoading] = useState(true);
+  const { products, loading } = useProducts();
+
   const [openFilters, setOpenFilters] = useState(false);
   const [selectedRanges, setSelectedRanges] = useState<number[]>([]);
 
@@ -24,18 +25,6 @@ const Shop = () => {
       setSelectedRanges((ranges) => [...ranges, id]);
     }
   };
-
-  useEffect(() => {
-    setLoading(true); // force reset
-    setProducts(0);
-
-    const timer = setTimeout(() => {
-      setLoading(false);
-      setProducts(8);
-    }, 2000);
-
-    return () => clearTimeout(timer); // cleanup in case unmounted early
-  }, []);
 
   const handleFilters = () => {
     setOpenFilters((prev) => !prev);
@@ -96,8 +85,8 @@ const Shop = () => {
             ? Array(8)
                 .fill(0)
                 .map((_, i) => <SkeletonCard key={i} />)
-            : Array.from({ length: products }).map((_, i) => (
-                <ProductCard key={i} />
+            : products.map((product) => (
+                <ProductCard key={product.id} product={product} />
               ))}
         </article>
       </section>

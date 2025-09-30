@@ -1,5 +1,6 @@
 import Categories from "@/components/Categories";
 import Hero from "@/components/Hero";
+import HomeProdDisplay from "@/components/HomeProdDisplay";
 import ProductCard from "@/components/ProductCard";
 import Image from "next/image";
 import Link from "next/link";
@@ -15,12 +16,7 @@ export default function Home() {
         <h2 className="relative text-center font-bold text-2xl w-fit after:content-[''] after:w-2/3 after:h-1 after:bg-brand-500 after:block after:mt-1 after:mx-auto">
           Featured Products
         </h2>
-        <article className="grid grid-cols-2 py-2.5 gap-2.5">
-          <ProductCard />
-          <ProductCard />
-          <ProductCard />
-          <ProductCard />
-        </article>
+        <HomeProdDisplay />
       </section>
       <section className="p-2.5 flex flex-col items-center bg-white gap-2.5 ">
         <div className="h-[250px] w-full rounded-md flex items-center bg-[url('/banner7.jpg')] bg-cover bg-[55%_center]">
