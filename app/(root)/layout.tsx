@@ -2,6 +2,7 @@ import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
 import { SessionProvider } from "next-auth/react";
 import React from "react";
+import { ProductsProvider } from "@/context/ProductsContext";
 
 export default function ({
   children,
@@ -9,7 +10,9 @@ export default function ({
   return (
     <SessionProvider>
       <Navbar />
-      <main className="mt-15">{children}</main>
+      <ProductsProvider>
+        <main className="mt-15">{children}</main>
+      </ProductsProvider>
       <Footer />
     </SessionProvider>
   );
