@@ -1,11 +1,26 @@
+"use client";
+
 import React from "react";
 import Image from "next/image";
 import { StarIcon as StarSolid } from "@heroicons/react/20/solid";
 import { StarIcon as StarOutline } from "@heroicons/react/24/outline";
 import { Product } from "@/types";
+import { useCart } from "@/context/CartContext";
 
 const ProductCard = ({ product }: { product: Product }) => {
-  const { name, images, price } = product;
+  const { id, name, images, price } = product;
+
+  const { addToCart } = useCart();
+
+  const handleAdd = () => {
+    addToCart({
+      id,
+      name,
+      price,
+      image: images[0]?.url ?? "/placeholder.jpg",
+      quantity: 1,
+    });
+  };
 
   return (
     <div className="px-2 flex flex-col gap-2">
@@ -14,6 +29,7 @@ const ProductCard = ({ product }: { product: Product }) => {
           src={images[0].url}
           fill
           className="px-8 w-full object-contain cursor-pointer"
+          sizes="(max-width: 768px) 100vw, 25vw"
           alt="product-IMG"
         />
       </div>
@@ -34,7 +50,9 @@ const ProductCard = ({ product }: { product: Product }) => {
           <span className="line-through text-gray-500">${price}</span>
         </h4>
       </div>
-      <button className="alternate-btn">ADD TO CART</button>
+      <button onClick={handleAdd} className="alternate-btn">
+        ADD TO CART
+      </button>
     </div>
   );
 };
