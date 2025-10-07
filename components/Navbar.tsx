@@ -12,8 +12,10 @@ import {
 import Link from "next/link";
 import { AnimatePresence, motion } from "framer-motion";
 import { useSession } from "next-auth/react";
+import { useCart } from "@/context/CartContext";
 
 const Navbar = () => {
+  const { cart, totalItems } = useCart();
   const { data: session } = useSession();
   const [menuToggle, setMenuToggle] = useState(false);
   const href = session ? `/account/dashboard` : "/signin";
@@ -31,7 +33,10 @@ const Navbar = () => {
           <Link href={href}>
             <User className="icon" size={20} />
           </Link>
-          <Link href={"/cart"}>
+          <Link href={"/cart"} className="relative">
+            <div className="absolute -right-1.5 -top-1.5 rounded-full h-4.5 w-4.5 bg-brand-500 flex items-center justify-center">
+              <p className="text-[10px] text-white">{totalItems}</p>
+            </div>
             <ShoppingCart className="icon" size={20} />
           </Link>
           <Menu className="icon" size={24} onClick={handleClick} />

@@ -10,14 +10,6 @@ export type CategoryType = {
   variant: "home" | "shop"; // 👈 these are your two modes
 };
 
-export type CartItem = {
-  id: string;
-  name: string;
-  price: number;
-  quantity: number;
-  image?: string; // optional if you want thumbnails
-};
-
 export type Image = {
   id: string;
   url: string;
@@ -39,3 +31,22 @@ export type ProductsContextType = {
   loading: boolean;
   reload: () => void;
 };
+
+/**********************************************/
+
+export type CartItem = {
+  id: string;
+  name: string;
+  price: number;
+  image: string;
+  quantity: number;
+};
+
+export interface CartContextType {
+  cart: CartItem[];
+  addToCart: (item: CartItem) => void;
+  removeFromCart: (id: string) => void;
+  clearCart: () => void;
+  changeQuantity: (id: string, delta: number) => void;
+  totalItems: number;
+}
